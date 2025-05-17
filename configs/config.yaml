@@ -1,0 +1,31 @@
+defaults:
+  - model: perceiver # References configs/model/perceiver.yaml
+  # You can add other defaults here, e.g., for optimizer, dataset, etc.
+
+hydra:
+  run:
+    dir: ./outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: ./multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+
+data:
+  num_track_train_samples: 1000
+  num_mpra_train_samples: 5000 # You can set this to a different value
+  num_track_val_samples: 200
+  num_mpra_val_samples: 200
+  # Add other data-related configs here, e.g., paths if not using synthetic data
+
+training:
+  batch_size: 32
+  epochs: 2
+  learning_rate: 1e-4
+  log_interval: 10 # Log every N batches
+  checkpoint_dir: "./checkpoints"
+  run_generation_test: false 
+
+generation:
+  checkpoint_path: "outputs/2025-05-17/16-08-25/checkpoints/perceiver_joint_final.pth" # Path to the trained model checkpoint
+  target_activity: 1.0
+  num_sequences_to_generate: 5
+  temperature: 1.0 

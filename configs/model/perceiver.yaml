@@ -1,0 +1,12 @@
+# @package _group_
+d_model: 256
+d_latent: 512
+num_latents: 128
+num_self_attn_per_block: 4
+num_cross_attn_heads: 4
+num_self_attn_heads: 8
+seq_len: 1000 # Corresponds to track_len for TrackPreprocessor
+mpra_len: 150 # Corresponds to mpra_len for MPRAPreprocessor and MPRADecoder
+num_bins: 256 # For TrackPreprocessor coverage embedding
+min_cov: 0.0  # For TrackPreprocessor coverage embedding
+max_cov: 10.0 # For TrackPreprocessor coverage embedding 
