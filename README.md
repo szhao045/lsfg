@@ -1,6 +1,5 @@
 # Motivation
 
-# Motivation
 
 How can we unify track-based data with functional genomics assays such as Massively Parallel Reporter Assays (MPRA) or Deep Mutagenesis Scans (DMS)?
 
